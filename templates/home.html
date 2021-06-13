@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container d-lg-flex align-items-lg-center space-top-2 space-lg-0 min-vh-lg-100">
+    <!-- Content -->
+    <div class="w-md-100">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="mb-5 mt-11">
+            <h1 class="display-4 mb-3">
+              Shop Online Medical Store with
+
+              <span class="text-primary text-highlight-warning">
+                <span class="js-text-animation" data-hs-typed-options="{
+                        &quot;strings&quot;: [&quot;startup.&quot;, &quot;future.&quot;, &quot;success.&quot;],
+                        &quot;typeSpeed&quot;: 90,
+                        &quot;loop&quot;: true,
+                        &quot;backSpeed&quot;: 30,
+                        &quot;backDelay&quot;: 2500
+                      }">us.</span><span class="typed-cursor typed-cursor--blink">|</span>
+              </span>
+            </h1>
+            <p class="lead">We offer medicines at affordable cost and charge less tax. Medicines are delivered same day within 6 hours depending on destination.</p>
+          </div>
+
+          <a class="btn btn-primary btn-wide transition-3d-hover" href='{{ url_for("search", category="all") }}'>Search Medicine</a>
+        </div>
+        <div class="col-lg-5">
+            <img src='/static/images/logo.png'>
+        </div>
+      </div>
+    </div>
+    <!-- End Content -->
+</div>
+
+
+{%endblock%}

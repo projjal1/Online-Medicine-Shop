@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Purchase Item</h1>
+      <p>Select number of items you want to purchase of a specific product.<br>
+    Add to Cart and then checkout from there. </p>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col">
+        <img class="card-img-top" src="{{ r['img'] }}" alt="{{ r['name'] }}" width="200">
+    </div>
+
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ r['name'] }}</h5>
+              <p class="card-text">{{ r['desc'] }}</p>
+              <p class="card-footer"><b>Price</b>  {{ r['price'] }} <br>  {% if r['stock']>0 %}<b>Stock</b>  {{ r['stock'] }} {% else %}
+            <b>Out of Stock</b>  {% endif %}</p>
+            </div>
+
+            <div class="card-footer">
+                <form class="form-group" action="{{ url_for('cart',hash=r['hash']) }} " method="POST">
+                    <label for="qty">Quantity:</label>
+                    <input type="number" id="quantity" name="qty" value="1" min="1">
+                    <br><br> 
+                    <input type="submit" class="btn btn-primary" value="Add to Cart" padding-left="8px">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+<div class="row">
+
+<div class="col">
+<div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dropdown link
+    </a>
+  
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <a class="dropdown-item" href="{{ url_for('search',category='anti-pyretic') }}">AntiPyretic</a>
+      <a class="dropdown-item" href="{{ url_for('search',category='homeopathic') }}">Homeopathic</a>
+      <a class="dropdown-item" href="{{ url_for('search',category='analgesic') }}">Analgesic</a>
+      <a class="dropdown-item" href="{{ url_for('search',category='orthopaedic') }}">Orthopaedics</a>
+      <a class="dropdown-item" href="{{ url_for('search',category='antidepressant') }}">Antidepressants</a>
+      <a class="dropdown-item" href="{{ url_for('search',category='digestive') }}">Digestives</a>
+      <a class="dropdown-item" href="{{ url_for('search',category='covid-drug') }}">Covid-Drug</a>
+    </div>
+</div>
+</div>
+
+<div class="col">
+    <h3>Searching Medicines listed on our site.</h3>
+</div>
+
+</div>
+</div>
+
+<br><hr><br>
+
+{% if success %}
+<p class="success">{{success}}</p>
+{% endif %}
+
+{% for rec in records %}
+<div class="row mb-3">
+    {% for r in rec %}
+    <div class="col-4 themed-grid-col">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{ r['img'] }}" alt="Register" height="150" width="150">
+            <div class="card-body">
+              <h5 class="card-title">{{ r['name'] }}</h5>
+              <p class="card-text"><b>Price</b>  {{ r['price'] }} <br>  {% if r['stock']>0 %}<b>Stock</b>  {{ r['stock'] }} {% else %}
+            <b>Out of Stock</b>  {% endif %}</p>
+              <a href="{{ url_for('explore', hash=r['hash'] ) }}" class="btn btn-primary">Explore</a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+</div>
+{% endfor %}
+
+{% endblock %}
