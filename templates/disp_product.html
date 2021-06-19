@@ -7,12 +7,23 @@
 <div class="row">
 
 <div class="col">
-<div class="dropdown">
+<div class="dropdown" style=" min-width: 100%;float: left;
+    height: 120px;
+    margin: 0px 8px 8px 0px;
+    padding: 10px 10px 12px 10px;
+    border: 1px solid #F1F1F1;
+    box-shadow: 0 0 4px #F3F3F3;
+    width: 162px;
+    background:#FFFFFF;">
     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Dropdown link
     </a>
   
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="background: #ffffff none repeat scroll 0 0;
+    border: 1px solid #f1f1f1;
+    box-shadow: 0 0 4px #f3f3f3;
+    margin-bottom: 15px;
+    overflow: auto;">
       <a class="dropdown-item" href="{{ url_for('search',category='anti-pyretic') }}">AntiPyretic</a>
       <a class="dropdown-item" href="{{ url_for('search',category='homeopathic') }}">Homeopathic</a>
       <a class="dropdown-item" href="{{ url_for('search',category='analgesic') }}">Analgesic</a>
@@ -42,7 +53,9 @@
     {% for r in rec %}
     <div class="col-4 themed-grid-col">
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{ r['img'] }}" alt="Register" height="150" width="150">
+            <img class="card-img-top" src="{{ r['img'] }}" alt="Register" height="150" width="150" style=""display: flex;flex-direction: column;
+    		justify-content: center;
+    		overflow: hidden;>
             <div class="card-body">
               <h5 class="card-title">{{ r['name'] }}</h5>
               <p class="card-text"><b>Price</b>  {{ r['price'] }} <br>  {% if r['stock']>0 %}<b>Stock</b>  {{ r['stock'] }} {% else %}

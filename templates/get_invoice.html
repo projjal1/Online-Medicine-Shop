@@ -2,15 +2,20 @@
 
 {% block content %}
 
-<h2><p>Get your invoice:</p> </h2>
+<h2 style="color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 10px 0 20px;"><p>Get your invoice:</p> </h2>
 <br>
 <form action="{{ url_for('invoice') }} "  method="POST">
-    <input type="submit" class="btn btn-primary" value="Generate Invoice">
+    <input type="submit" class="btn btn-primary" value="Generate Invoice" style="background: #7AA307 !important;
+    color: #FFFFFF !important;cursor: pointer ">
 </form>
 
 <br>
 
-<h1 class="display-3">Thank You!</h1>  <br>
-<h3>We are pleased to have you as our customer!</h3>
+<h1 class="display-3" style=" text-align: center !important;">Thank You!</h1>  <br>
+<h3 style=" text-align: center !important;" >We are pleased to have you as our customer!</h3>
 
 {% endblock %}
