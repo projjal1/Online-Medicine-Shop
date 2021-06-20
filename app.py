@@ -233,7 +233,7 @@ def invoice():
     # Appending app path to upload folder path within app root folder
     uploads = os.path.join(app.root_path, 'invoices/')
     # Returning file from appended path
-    return send_from_directory(directory=uploads, filename='invoice'+str(ls)+".pdf")
+    return send_from_directory(directory=uploads, path='invoice'+str(ls)+".pdf")
 
 if __name__=="__main__":
     app.run(debug=True, port=8000)
